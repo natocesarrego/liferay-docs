@@ -25,7 +25,13 @@ If you're writing a success page for a more "fun" form, like a registration form
 for a dog sled race, you can be more playful:
 [![Figure x: A potential dog sled race registration form's success page.](../../../images/forms-success-page.png)
 
-To configure a success page, you must be in the form builder. Click on the form
+The default success page message simply says 
+
+**Done** 
+
+*Your information was successfully received. Thank you for filling out the form.*
+
+You To configure a success page, you must be in the form builder. Click on the form
 page's Action (![Actions](../../../images-dxp/icon-actions.png)) button and
 choose *Add Success Page*.
 
