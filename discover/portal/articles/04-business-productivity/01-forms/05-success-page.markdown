@@ -1,12 +1,14 @@
 # Form Success Pages
 
-Once a user submits one of your whiz-bang forms, what next? How will they know
+After users submit one of your whiz-bang forms, what next? How will they know
 they're done, and can close the browser window or tab? What if they think their
 submission didn't go through, and wonder if they need to fill out the whole form
 again? By default, submitting a form brings you back to the first page of the
 form, and it's now blank. Don't leave users feeling lost, relying on the default
 success message to assure them that their form entry was successfully submitted.
 Instead, configure a Success Page.
+
+![Figure x: There's a default success message that alerts users that their request completed successfully.](../../../images/your-request-completed-successfully.png)
 
 The success page is simple. It has a title in bold text, and a description
 beneath the title. A common alternative to using a success page is to [redirect
@@ -17,23 +19,26 @@ they've finished filling out the form and their submission was received
 successfully. A success page can even urge users to close the browser window or
 tab.
 
-What should you put in the success page? Whatever you want, but you can try
-this if you are a serious individual with a serious form:
-[![Figure x: Here's a long, serious form success page.](../../../images/forms-success-page1.png)
+What should you put in the success page? Whatever you want. If you are a serious
+individual with a serious form, try something like this:
+
+![Figure x: Here's a long, serious form success page.](../../../images/forms-success-page1.png)
 
 If you're writing a success page for a more "fun" form, like a registration form
-for a dog sled race, you can be more playful:
-[![Figure x: A potential dog sled race registration form's success page.](../../../images/forms-success-page.png)
+for a dog sled race, you can inject a little humor:
 
-The default success page message simply says 
+![Figure x: A potential dog sled race registration form's success page.](../../../images/forms-success-page.png)
 
-**Done** 
+If you can't think of anything important or creative to say, use the default
+message:
 
-*Your information was successfully received. Thank you for filling out the form.*
+![Figure x: There's a default success page message if you just can't think of
+anything else to say.](../../../images/forms-success-page-default.png)
 
-You To configure a success page, you must be in the form builder. Click on the form
-page's Action (![Actions](../../../images-dxp/icon-actions.png)) button and
-choose *Add Success Page*.
+To configure a success page, add a form in Site Administration &rarr; Content
+&rarr; Forms. Click on the form page's Actions
+(![Actions](../../../images-dxp/icon-actions.png)) button and choose *Add
+Success Page*.
 
 ![Figure x: Add a success page using the edit menu for the form page.](../../../images/forms-success-page-add.png)
 
@@ -43,24 +48,20 @@ Page is live for your form users!
 
 +$$$
 
-**Note:** You can't preview the success page. If you configure a success page
-and then click the Preview Form link in the form builder, the form's regular
-pages can be previewed (use the Next button to navigate through the form). In
-order to see a success page, the form entry must be submitted, but form entries
-cannot be submitted while previewing the form.
+**Note:** You can't preview the success page. Success pages can only be viewed
+once a form is submitted, and the Submit button isn't available in the form
+preview. The Preview Form link in the form builder let's you preview the form's
+regular pages (use the Next button to navigate through the form) only.
+
+To see what your success page looks like, just submit a test entry of the form,
+and delete if you need to. For more on viewing and managing form entries, see
+[here](/discover/portal/-/knowledge_base/7-0/basic-forms#viewing-form-entries).
 
 $$$
 
-Success pages help your users feel that their form experience is complete.  They
+Success pages help form users feel that their form experience is complete. They
 allow you to craft a suitable message to assure form users that everything is
 working as expected. Use success pages if you don't need to [direct users
 somewhere else in your site](/discover/portal/-/knowledge_base/7-0/creating-advanced-forms#redirecting-users-after-form-submission)
 after completing the form submission.
-
-<!-- Add information about default success page text. Not available for testing
-on local master build from Monday April 3, 2017 (morning) or
-master.liferay.org.es on Tuesday April 4, 2017. -->
-
-
-
 
