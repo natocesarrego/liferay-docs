@@ -20,13 +20,13 @@ configuring the text field.
 
 ![Figure 3: A multiline text form.](../images/forms-multiline.png)
 
-Select List
+Select from List
 : Users select one (or more, if configured to allow it) options from a dropdown
-list of choices. Choices can be entered manually or automatically populated by a
-data provider. For example, a Country of Origin field would probably be a select
-list field populated by a Countries of the World data provider. 
+list of choices. Choices can be entered manually or automatically populated by
+a data provider. For example, a Country of Residence field would probably be a
+select from list field populated by a Countries of the World data provider. 
 
-![Figure 4: A select list field.](../images/forms-select-list.png)
+![Figure 4: A select from list field.](../images/forms-select-list.png)
 
 Single Selection
 : Using a radio button, users select one option from a list of options displayed
@@ -58,7 +58,7 @@ Good, Not So Good, or Awful.
 Numeric
 : Users enter numeric data (integers or decimals) into numeric fields.
 Non-number input is not accepted. For example, configure a numeric field that
-accepts integers to ask users how many children they have.
+accepts integers to ask users how many pets they have.
 
 ![Figure 9: A numeric field.](../images/forms-numeric.png)
 
