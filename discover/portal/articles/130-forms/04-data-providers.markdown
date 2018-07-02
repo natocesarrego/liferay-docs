@@ -133,18 +133,28 @@ provided by the data provider. Once you grant permissions, click *Save*.
 The above instructions for adding a basic Data Provider are a good start, but
 there are more options.
 
+*URL* : The URL of a REST Web Service, which can be an internal or an external REST web service. In both cases, the URL can receive two types of parameters, the path parameters and the query parameters. The path parameters make part of the URL and are added following the pattern `{path_parameter_name}`, like in `https://restcountries.eu/rest/v2/name/{name}` where the `{name}` is the path parameter. On the other hand, the query parameters are used as a complementary part of the URL and follows the pattern `?query_parameter=query_parameter_value` like in `https://restcountries.eu/rest/v2/name/{name}?query_parameter=query_parameter_value`.
+
+*User Name* and *Password* : Credentials used to autheticate in the REST Web Service. These credentials are valid for internal and external REST Web Services.
+
 *Support filtering by keyword.*
 : If activated<!-- what does this do?--> Enter a valid parameter from the REST service into the
 Filter Parameter Name. This parameter is used to filter the REST service's
 results.
 
+When this parameter is enabled, a new field named `Filter Parameter Name` is displayed in the Data Provider configuration. This field receives the name of a query parameter, which will be used to filter the results of the Data Provider. It's important to emphasize that this field only supports a single query parameter.
+
 *Cache data on the first request.*
 : If the data is cached, a second load of the select list field is much faster,
 since a second call to the REST service provider is unnecessary.
 
+The cache activated by this field is the cache provided by Liferay Portal, there is no special cache implemented by Forms.
+
 *Timeout*
 : The time (in ms) to allow the REST service call to process before aborting the
 request, if a response is not returned.
+
+If the REST service call timeouts, then a thirty party tool ([Hystrix](https://github.com/Netflix/Hystrix)) is used by Forms to disable the communication with the REST service temporarily unavailable.
 
 *Inputs*
 : Specify <!--what does this do? --> Enter a Label, the Parameter that ............, and the
