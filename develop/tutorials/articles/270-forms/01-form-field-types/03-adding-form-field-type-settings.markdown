@@ -161,10 +161,13 @@ class, as was necessary for the predefinedValue, min and max.
 | example:
 |
 | `@DDMForm`
-| : Instantiates a new `DDMForm`. Creates a dynamic form from the annotation.
+| : Instantiates a new `DDMForm`. Creates a dynamic form from the annotation. It
+is responsible for create a Form Rule (@DDMFormRule) programatically.
 |
 `@DDMFormRule`
-| : ???
+| :  The Rule takes two variables: actions and conditions. In the case above, the action
+ will always execute because its condition is equals to TRUE and the action associate
+ to it is hide the validation of a specific Form field, in this case the Slider.
 |
 | `@DDMFormLayout`
 | : Takes two variables: `paginationMode` and `value`. The pagination mode is a
