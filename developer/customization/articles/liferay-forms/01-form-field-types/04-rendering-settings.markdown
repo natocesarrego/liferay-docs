@@ -6,9 +6,9 @@ header-id: rendering-form-field-settings
 
 [TOC levels=1-4]
 
-Once the settings are added to the class backing the field's settings,update the front-end code.
+Once the settings are added to the class backing the field's settings, update the front-end code.
 
-## Passing Settings to the Renderer Class
+## Preparing Settings to the Front-End
 
 Send the new configuration settings to the Soy template so they can be displayed
 to the end user. Create a new Java class implementing the interface
@@ -22,12 +22,12 @@ template. To get these settings, create a new class,
 annotation and the class declaration:
 
     @Component(
-    immediate = true,
-    property = "ddm.form.field.type.name=slider",
-    service = {
-        DDMFormFieldTemplateContextContributor.class,
-        SliderDDMFormFieldTemplateContextContributor.class
-    }
+        immediate = true,
+        property = "ddm.form.field.type.name=slider",
+        service = {
+            DDMFormFieldTemplateContextContributor.class,
+            SliderDDMFormFieldTemplateContextContributor.class
+        }
     )
     public class SliderDDMFormFieldTemplateContextContributor
         implements DDMFormFieldTemplateContextContributor {
@@ -43,9 +43,8 @@ Then override `getParameters` to get the new configurations settings,
 
 		Map<String, Object> parameters = new HashMap<>();
 
-		parameters.put(
-            "min", ddmFormField.getProperty("min"));
-        parameters.put("max", ddmFormField.getProperty("max"));
+		parameters.put("min", (String)ddmFormField.getProperty("min"));
+        parameters.put("max", (String)ddmFormField.getProperty("max"));
 
 		return parameters;
     }
@@ -68,15 +67,15 @@ as attributes of the component:
 These attributes (max and min) define the the bottom value and the top value of the slider range, so the max and min setting must receive a number.
 
 Now the field type JavaScript component is configured to include the settings.
-All you have left to do is to update the Soy template so the min and max value can be applied to the Slider field.
+All you have left to do is to update the Soy template so the min and max values can be applied to the Slider field.
 
 ## Updating the Soy Template
 
-Add the placeholder setting to your Soy template's logic.
+Add the `min` and `max` settings to your Soy template's logic.
 
 The whole template is included below, but the only additions are in the list of
 parameters, and then in the `<input>` tag, where you
-use the parameter min and max to configure the min and max HTML property with the proper value.
+use the parameters' values to configure the `min` and `max` HTML properties with the proper values.
 
     {namespace Slider}
 
@@ -148,8 +147,8 @@ use the parameter min and max to configure the min and max HTML property with th
         <input {$attributes}>
     {/template}
 
-The min and max set by the form builder is captured in the rendering of the Slider itself.
+The `min` and `max` set by the form builder is captured in the rendering of the Slider itself.
 
-Now when you build the project and deploy your time field, you have a fully
+Now when you build the project and deploy your slider field, you have a fully
 developed *slider* form field type, complete with the proper JavaScript behavior and with additional settings.
 

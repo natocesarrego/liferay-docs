@@ -23,18 +23,12 @@ There are several steps involved in creating a form field type:
 | [Liferay Dev Studio](/docs/7-1/tutorials/-/knowledge_base/t/creating-modules-with-liferay-ide).
 | There's a Blade template for creating form fields. Using the CLI, enter
 |
-|     blade create -t form-field -v 7.2 -p com.liferay.docs.formfieldtype -c Slider DDMTypeSlider
+|     blade create -t form-field -v 7.2 -p com.liferay.docs.formfieldtype -c Slider ddm-type-slider
 |
-| This gives you a `DDMTypeSlider` module with a similar structure to what's above.
-| The Java classes are in the package `com.liferay.docs.formfield` under
+| This gives you a `ddm-type-slider` module with a similar structure to what's above.
+| The Java class is in the package `com.liferay.docs.formfieldtype` under
 | `src/main/java/` and the frontend resources (JavaScript and Soy files) are in
 | `src/main/resources/META-INF/resources`.
-|
-| A known limitation in the form-field template requires the use of camel case in
-| the project name (`DDMTypeSlider`). Trying to use kebab case instead
-| (`ddm-type-slider`) generates a non-functioning module. This is fixed with the
-| release of Blade 3.3. Run `blade version` from the command line to see the
-| version of Blade you're running.
 |
 | Using Blade CLI or Liferay Dev Studio, you get a project skeleton with much of
 | the boilerplate filled in, so you can focus immediately on coding.
@@ -53,8 +47,8 @@ called `dynamic-data-mapping-type-slider`:
     Bundle-Version: 1.0.0
     Web-ContextPath: /dynamic-data-mapping-type-slider
 
-Path to the modules root folder, so your module's resources are made available
-upon module activation.
+The Web Context Path sets the path to the modules root folder, so your module's
+resources are made available upon module activation.
 
 Next craft the OSGi Component that marks your class as an implementation of
 `DDMFormFieldType`.
@@ -69,7 +63,7 @@ If you're creating a *Slider* field type, define the Component at the top of you
       property = {
         "ddm.form.field.type.description=slider-field-type-description",
 		"ddm.form.field.type.display.order:Integer=10",
-		"ddm.form.field.type.group=basic",
+		"ddm.form.field.type.group=customized",
         "ddm.form.field.type.icon=control-panel",
 		"ddm.form.field.type.label=slider-field-type-label",
 		"ddm.form.field.type.name=slider"
@@ -91,7 +85,7 @@ the form builder's sidebar, just below the field's label.
 
 `ddm.form.field.type.icon`
 : The icon for the field type. Choosing one of the
-[Lexicon icons](https://lexicondesign.io/docs/patterns/icons.html)
+[Clay icons](https://clayui.com/docs/components/icons.html)
 makes your form field blend in with the existing form field types.
 
 `ddm.form.field.type.label`
@@ -110,10 +104,14 @@ Next code the `*DDMFormFieldType` class.
 Implementing the field type in Java is made easier because of
 `BaseDDMFormFieldType`, an abstract class you can leverage in your code.
 
-After extending `BaseDDMFormFieldType`, override the `getName` method by
-specifying the name of your new field type:
+After extending `BaseDDMFormFieldType`, override the `getModuleName` and `getName` methods by specifying the path to the JavaScript file modeling your field and the name of your new field type, respectively:
 
     public class SliderDDMFormFieldType extends BaseDDMFormFieldType {
+
+        @Override
+        public String getModuleName() {
+            return "dynamic-data-mapping-type-slider/Slider/Slider.es";
+        }
 
         @Override
         public String getName() {
