@@ -188,7 +188,7 @@ field. This method already exists in the base class (`BaseDDMFormFieldType`), so
 override it:
 
     @Override
-	public Class<? extends DDMFormFieldTypeSettings
+	public Class<? extends DDMFormFieldTypeSettings>
 		getDDMFormFieldTypeSettings() {
 
 		return SliderDDMFormFieldTypeSettings.class;

@@ -59,6 +59,7 @@ and populate it with this:
     {template .content}
         {@param name: string}
         {@param value: ?}
+        {@param? _handleFieldChanged: any}
         {@param? predefinedValue: any}
         {let $attributes kind="attributes"}
             class="ddm-field-slider form-control slider"
@@ -133,7 +134,7 @@ Once the templates are defined, write the JavaScript file modeling your field.
 
 Create a `Slider.es.js` file and give it these contents:
 
-    import '../FieldBase/FieldBase.es';
+    import 'dynamic-data-mapping-form-field-type/FieldBase/FieldBase.es';
     import './SliderRegister.soy.js';
     import templates from './Slider.soy.js';
     import Component from 'metal-component';

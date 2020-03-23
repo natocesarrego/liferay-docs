@@ -63,7 +63,7 @@ If you're creating a *Slider* field type, define the Component at the top of you
       property = {
         "ddm.form.field.type.description=slider-field-type-description",
 		"ddm.form.field.type.display.order:Integer=10",
-		"ddm.form.field.type.group=customized",
+		"ddm.form.field.type.group=basic",
         "ddm.form.field.type.icon=control-panel",
 		"ddm.form.field.type.label=slider-field-type-label",
 		"ddm.form.field.type.name=slider"
@@ -82,6 +82,9 @@ the form builder's sidebar, just below the field's label.
 
 `ddm.form.field.type.display.order`
 : An Integer defining the field type's position in the sidebar.
+
+`ddm.form.field.typ.group`
+: Defines the field type's section in the sidebar.
 
 `ddm.form.field.type.icon`
 : The icon for the field type. Choosing one of the
@@ -104,13 +107,14 @@ Next code the `*DDMFormFieldType` class.
 Implementing the field type in Java is made easier because of
 `BaseDDMFormFieldType`, an abstract class you can leverage in your code.
 
-After extending `BaseDDMFormFieldType`, override the `getModuleName` and `getName` methods by specifying the path to the JavaScript file modeling your field and the name of your new field type, respectively:
+After extending `BaseDDMFormFieldType`, override the `getModuleName` and `getName` methods by specifying the path to the JavaScript file modeling your field and the name of your new field type, respectively, and set this field as a custom form field type, overriding the `isCustomDDMFormFieldType` method:
 
     public class SliderDDMFormFieldType extends BaseDDMFormFieldType {
 
         @Override
         public String getModuleName() {
-            return "dynamic-data-mapping-type-slider/Slider/Slider.es";
+            return _npmResolver.resolveModuleName(
+			    "dynamic-data-mapping-form-field-type-slider/Slider/Slider.es");
         }
 
         @Override
@@ -118,7 +122,14 @@ After extending `BaseDDMFormFieldType`, override the `getModuleName` and `getNam
             return "slider";
         }
 
-    }
+        @Override
+	    public boolean isCustomDDMFormFieldType() {
+		    return true;
+	    }
+    
+    @Reference
+	private NPMResolver _npmResolver;
+}
 
 That's all there is to defining the field type. Next determine how your field
 type is rendered.

@@ -76,7 +76,7 @@ class and resources:
 `*DDMFormFieldType.java`: Defines the form field type in the back-end. If you
 extend the abstract class that implements the interface, you automatically
 include the default form configuration options for your form field type. In
-that case, override the interface's `getModuleName` and `getName` methods and you're done. To see
+that case, override the interface's `getModuleName`, `getName` and `isCustomDDMFormFieldType` methods and you're done. To see
 the default configuration options your form field type inherits, look at
 the `DefaultDDMFormFieldTypeSettings` class in the `dynamic-data-mapping-api`
 module.
